@@ -1,19 +1,11 @@
 var io = require("socket.io").listen(999);
 var mysql = require('mysql');
-var pool = mysql.createPool({
-  connectionLimit : 10,
-  host : '54.202.7.238',
-  port : '/var/run/mysqld/mysqld.sock',
-  user : 'root',
-  database : 'iqubefinal',
-  password : 'ekdrms24',
-});
 
 
 io.sockets.on("connection", function(socket){
     console.log("A user connected");
     
-    ///¸ÊÀúÀå
+    ///ë§µì €ì¥
     socket.on("sMsg", function(data, error){
       if(error){
         console.log(error);
@@ -44,7 +36,7 @@ io.sockets.on("connection", function(socket){
 
 
 
-            /// ¸¶ÀÌ ¸Ê
+            /// ë§ˆì´ ë§µ
     socket.on("mymap", function(data, error){
       if(error){
         console.log(error);
@@ -68,7 +60,7 @@ io.sockets.on("connection", function(socket){
     
    
     
-     ///·Î±×ÀÎ
+     ///ë¡œê·¸ì¸
     socket.on("login", function(data, error){
       if(error){
         console.log(error);
@@ -96,7 +88,7 @@ io.sockets.on("connection", function(socket){
     }
     });
     
-   ///Ä¿½ºÅÒ ÇÃ·¹ÀÌ ¼º°ø
+   ///ì»¤ìŠ¤í…€ í”Œë ˆì´ ì„±ê³µ
        socket.on("succes", function(data, error){
          if(error){
            console.log(error);
@@ -157,7 +149,7 @@ io.sockets.on("connection", function(socket){
        }
        });
     
-      ///Ä¿½ºÅÒ ÇÃ·¹ÀÌ ½ÇÆĞ
+      ///ì»¤ìŠ¤í…€ í”Œë ˆì´ ì‹¤íŒ¨
        socket.on("fail", function(data, error){
          if(error){
            console.log(error);
@@ -210,7 +202,7 @@ io.sockets.on("connection", function(socket){
        }
        });
     
-      /// ¸®½ºÆ® Å¬¸¯ ½Ã ¸Ê ºÒ·¯¿À±â
+      /// ë¦¬ìŠ¤íŠ¸ í´ë¦­ ì‹œ ë§µ ë¶ˆëŸ¬ì˜¤ê¸°
      socket.on("map", function(data, error){
       if(error){
         console.log(error);
@@ -231,7 +223,7 @@ io.sockets.on("connection", function(socket){
       }
     });
 
-    /// ¸®½ºÆ® ºÒ·¯¿À±â
+    /// ë¦¬ìŠ¤íŠ¸ ë¶ˆëŸ¬ì˜¤ê¸°
       socket.on("load", function(data, error){
         if(error){
           console.log(error);
@@ -255,7 +247,7 @@ io.sockets.on("connection", function(socket){
       });
 
     
-        /// ¸®½ºÆ® ºÒ·¯¿À±â ( ¼º°ø·ü ) 
+        /// ë¦¬ìŠ¤íŠ¸ ë¶ˆëŸ¬ì˜¤ê¸° ( ì„±ê³µë¥  ) 
     socket.on("load_rate", function(data, error){
       if(error){
         console.log(error);
@@ -277,7 +269,7 @@ io.sockets.on("connection", function(socket){
       }
     });
     
-            /// ¸®½ºÆ® ºÒ·¯¿À±â ( Á¶È¸¼ö ) 
+            /// ë¦¬ìŠ¤íŠ¸ ë¶ˆëŸ¬ì˜¤ê¸° ( ì¡°íšŒìˆ˜ ) 
     socket.on("load_count", function(data, error){
       if(error){
         console.log(error);
@@ -297,7 +289,7 @@ io.sockets.on("connection", function(socket){
       });
       }
     });
-  ///³» ¼øÀ§ È®ÀÎ
+  ///ë‚´ ìˆœìœ„ í™•ì¸
 socket.on("myrank", function(data, error){
   if(error){
     console.log(error);
